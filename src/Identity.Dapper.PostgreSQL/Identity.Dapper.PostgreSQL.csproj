@@ -4,7 +4,11 @@
     <Description>Identity package that uses Dapper with PostgreSQL instead EntityFramework for use with .NET Core.</Description>
     <AssemblyTitle>Identity.Dapper.PostgreSql</AssemblyTitle>
     <Authors>grandchamp</Authors>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <!-- net8.0: ApparadApi'nin tükettiği hat — Npgsql sürümü Api ile birebir aynı
+         olsun diye eklendi (GHSA-x9vc-6hfv-hg8c / NU1903).
+         netstandard2.0: bu repodaki eski test/sample projeleri (netcoreapp2.0)
+         referans verdiği için korunuyor. -->
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
     <AssemblyName>Identity.Dapper.PostgreSQL</AssemblyName>
     <PackageId>Identity.Dapper.PostgreSQL</PackageId>
     <PackageTags>asp.net;core;dapper;identity;psql;postgresql</PackageTags>
@@ -34,7 +38,17 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.2.0" />
-    <PackageReference Include="Npgsql" Version="4.0.4" />
+  </ItemGroup>
+
+  <!-- Npgsql 9.x netstandard2.0 taşımıyor (yalnız net6.0/net8.0), o yüzden TFM başına ayrı.
+       Kullanılan yüzey NpgsqlConnection + NpgsqlConnectionStringBuilder ile sınırlı;
+       iki hat arasında API farkı yok. -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+    <PackageReference Include="Npgsql" Version="9.0.2" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="Npgsql" Version="4.0.17" />
   </ItemGroup>
 
 </Project>
