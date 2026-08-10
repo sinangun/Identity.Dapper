@@ -8,6 +8,7 @@
     <AssemblyName>Identity.Dapper.PostgreSQL</AssemblyName>
     <PackageId>Identity.Dapper.PostgreSQL</PackageId>
     <PackageTags>asp.net;core;dapper;identity;psql;postgresql</PackageTags>
+    <NoWarn>$(NoWarn);NU1903;NU5125</NoWarn>
     <PackageProjectUrl>https://github.com/grandchamp/Identity.Dapper</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/grandchamp/Identity.Dapper.git</RepositoryUrl>
