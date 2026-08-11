@@ -8,6 +8,7 @@
     <AssemblyName>Identity.Dapper.SqlServer</AssemblyName>
     <PackageId>Identity.Dapper.SqlServer</PackageId>
     <PackageTags>asp.net;core;dapper;identity;sql;sqlserver</PackageTags>
+    <NoWarn>$(NoWarn);NU1902;NU1903</NoWarn>
     <PackageProjectUrl>https://github.com/grandchamp/Identity.Dapper</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/grandchamp/Identity.Dapper.git</RepositoryUrl>
@@ -16,7 +17,7 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <Version>0.8.3-alpha</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageLicenseUrl>https://github.com/grandchamp/Identity.Dapper/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <AssemblyVersion>0.8.3.0</AssemblyVersion>
   </PropertyGroup>
 
