@@ -8,7 +8,6 @@
     <AssemblyName>Identity.Dapper.SqlServer</AssemblyName>
     <PackageId>Identity.Dapper.SqlServer</PackageId>
     <PackageTags>asp.net;core;dapper;identity;sql;sqlserver</PackageTags>
-    <NoWarn>$(NoWarn);NU1902;NU1903</NoWarn>
     <PackageProjectUrl>https://github.com/grandchamp/Identity.Dapper</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/grandchamp/Identity.Dapper.git</RepositoryUrl>
@@ -34,7 +33,10 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="2.2.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
+    <!-- 4.8.6: GHSA-8g2p-5pqh-5jmc + GHSA-98g6-xh36-x2p7 kapalı, susturma gerekmiyor.
+         4.9.0 kullanılamaz: orada tüm tipler [Obsolete], Debug'daki
+         TreatWarningsAsErrors bunu CS0618 error'a çeviriyor. -->
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 
 </Project>
